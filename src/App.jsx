@@ -100,7 +100,7 @@ function App() {
       <header className="bg-indigo-600 dark:bg-indigo-900 text-white p-4 shadow-lg sticky top-0 z-10">
         <div className="max-w-2xl mx-auto flex justify-between items-center">
           <div>
-            <h1 className="text-2xl font-bold">📱 나의 첫 PWA</h1>
+            <h1 className="text-2xl font-bold">📱 나의 첫 PWA v2</h1>
             <p className="text-sm text-indigo-200">메모를 작성해보세요</p>
           </div>
           <div className="flex gap-2">
