@@ -1,13 +1,45 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/pwa-192x192.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my-first-pwa</title>
+
+    <meta name="description" content="간단하고 빠른 메모 작성 PWA 앱" />
+    <meta name="keywords" content="메모, PWA, 오프라인" />
+
+    <meta name="theme-color" content="#209CEE" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="첫PWA" />
+    <link rel="apple-touch-icon" href="/pwa-192x192.png" />
+
+    <link rel="manifest" href="/manifest.json" />
+
+    <title>나의 첫 PWA</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: "class" };
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then((registration) => {
+              console.log("✅ Service Worker 등록 성공:", registration.scope);
+            })
+            .catch((error) => {
+              console.error("❌ Service Worker 등록 실패:", error);
+            });
+        });
+      }
+    </script>
   </body>
 </html>
